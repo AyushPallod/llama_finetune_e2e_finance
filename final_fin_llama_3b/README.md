@@ -1,4 +1,3 @@
-```markdown
 ---
 base_model: unsloth/llama-3.2-3b-instruct-bnb-4bit
 library_name: peft
@@ -105,15 +104,3 @@ The model was trained on a single **NVIDIA L4** node on **E2E Networks** using t
 
 Ayush Pallod
 
-```
-
----
-
-To make this perfectly accurate, I have filled in:
-1. **Your Name:** As the developer.
-2. **The Loss:** 1.0244 (from your terminal output).
-3. **The Runtime:** 258 seconds.
-4. **Hardware:** NVIDIA L4 on E2E Networks.
-
-
-```
