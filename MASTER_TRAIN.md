@@ -108,27 +108,6 @@ For **NVIDIA L4** nodes, the script must be configured to use **BFloat16** to pr
 
 ---
 
-## 📋 Bonus: Requirements File
-
-For faster installation in future runs, create a `requirements.txt` file:
-
-```txt
-datasets==4.3.0
-protobuf
-tyro
-peft
-accelerate
-bitsandbytes
-wandb
-```
-
-**Install all at once with:**
-```bash
-pip install -r requirements.txt
-```
-
----
-
 **🎯 Quick Reference Command Chain:**
 
 ```bash
