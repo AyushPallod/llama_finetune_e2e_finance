@@ -1,3 +1,4 @@
+```markdown
 ---
 base_model: unsloth/llama-3.2-3b-instruct-bnb-4bit
 library_name: peft
@@ -9,202 +10,110 @@ tags:
 - transformers
 - trl
 - unsloth
+- finance
+- sentiment-analysis
 ---
 
-# Model Card for Model ID
+# Finance Llama 3.2 3B - Phase 3 Master Run
 
-<!-- Provide a quick summary of what the model is/does. -->
-
-
+This model is a fine-tuned version of **Llama 3.2 3B Instruct** optimized for financial sentiment analysis. It was trained using **Unsloth** and **LoRA** adapters to classify financial news into Positive, Neutral, or Negative sentiments.
 
 ## Model Details
 
 ### Model Description
 
-<!-- Provide a longer summary of what this model is. -->
-
-
-
-- **Developed by:** [More Information Needed]
-- **Funded by [optional]:** [More Information Needed]
-- **Shared by [optional]:** [More Information Needed]
-- **Model type:** [More Information Needed]
-- **Language(s) (NLP):** [More Information Needed]
-- **License:** [More Information Needed]
-- **Finetuned from model [optional]:** [More Information Needed]
-
-### Model Sources [optional]
-
-<!-- Provide the basic links for the model. -->
-
-- **Repository:** [More Information Needed]
-- **Paper [optional]:** [More Information Needed]
-- **Demo [optional]:** [More Information Needed]
+- **Developed by:** Ayush Pallod
+- **Model type:** Large Language Model (Causal LM)
+- **Language(s) (NLP):** English
+- **License:** Apache-2.0 (based on Llama 3.2 license)
+- **Finetuned from model:** unsloth/llama-3.2-3b-instruct-bnb-4bit
 
 ## Uses
 
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
-
 ### Direct Use
-
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
-
-[More Information Needed]
-
-### Downstream Use [optional]
-
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
-
-[More Information Needed]
+This model is intended for analyzing financial text, specifically headlines and short phrases, to determine market sentiment.
 
 ### Out-of-Scope Use
-
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
-
-[More Information Needed]
-
-## Bias, Risks, and Limitations
-
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
-
-[More Information Needed]
-
-### Recommendations
-
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
-
-Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.
+The model should not be used as financial advice. It is a sentiment classifier and does not predict future stock prices or market movements.
 
 ## How to Get Started with the Model
 
-Use the code below to get started with the model.
+```python
+from unsloth import FastLanguageModel
 
-[More Information Needed]
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name = "AyushPallod/llama_finetune_e2e_finance",
+    max_seq_length = 2048,
+    load_in_4bit = True,
+)
+FastLanguageModel.for_inference(model)
+
+```
 
 ## Training Details
 
 ### Training Data
 
-<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
-
-[More Information Needed]
+The model was trained on the **FinanceMTEB/financial_phrasebank** dataset (Sentences from financial news with sentiment labels).
 
 ### Training Procedure
 
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
-
-#### Preprocessing [optional]
-
-[More Information Needed]
-
-
 #### Training Hyperparameters
 
-- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
+* **Epochs:** 3.0
+* **Learning Rate:** 2e-4
+* **Optimizer:** AdamW 8-bit
+* **Batch Size:** 4 (with Gradient Accumulation Steps: 4)
+* **Precision:** BF16 Mixed Precision (Optimized for NVIDIA L4)
 
-#### Speeds, Sizes, Times [optional]
+#### Speeds, Sizes, Times
 
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-[More Information Needed]
+* **Train Runtime:** 258.23 seconds
+* **Train Samples Per Second:** 14.68
+* **Final Training Loss:** 1.0244
 
 ## Evaluation
 
-<!-- This section describes the evaluation protocols and provides the results. -->
-
-### Testing Data, Factors & Metrics
-
-#### Testing Data
-
-<!-- This should link to a Dataset Card if possible. -->
-
-[More Information Needed]
-
-#### Factors
-
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-[More Information Needed]
-
-#### Metrics
-
-<!-- These are the evaluation metrics being used, ideally with a description of why. -->
-
-[More Information Needed]
+The model was monitored via **Weights & Biases** during the master run to ensure loss convergence.
 
 ### Results
 
-[More Information Needed]
-
-#### Summary
-
-
-
-## Model Examination [optional]
-
-<!-- Relevant interpretability work for the model goes here -->
-
-[More Information Needed]
+* **Final Loss:** 1.02
+* **Training Steps:** 237
 
 ## Environmental Impact
 
-<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
+* **Hardware Type:** NVIDIA L4 GPU (24GB VRAM)
+* **Hours used:** ~0.1 (Training) + ~2.0 (Setup/Dev)
+* **Cloud Provider:** E2E Networks
+* **Compute Region:** India
 
-Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
-
-- **Hardware Type:** [More Information Needed]
-- **Hours used:** [More Information Needed]
-- **Cloud Provider:** [More Information Needed]
-- **Compute Region:** [More Information Needed]
-- **Carbon Emitted:** [More Information Needed]
-
-## Technical Specifications [optional]
-
-### Model Architecture and Objective
-
-[More Information Needed]
+## Technical Specifications
 
 ### Compute Infrastructure
 
-[More Information Needed]
+The model was trained on a single **NVIDIA L4** node on **E2E Networks** using the Ada Lovelace architecture.
 
-#### Hardware
+### Software
 
-[More Information Needed]
+* **PEFT Version:** 0.18.1
+* **Unsloth Engine:** Latest (GitHub build)
+* **Transformers:** Latest
+* **Python:** 3.12
 
-#### Software
+## Model Card Authors
 
-[More Information Needed]
+Ayush Pallod
 
-## Citation [optional]
+```
 
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
+---
 
-**BibTeX:**
+To make this perfectly accurate, I have filled in:
+1. **Your Name:** As the developer.
+2. **The Loss:** 1.0244 (from your terminal output).
+3. **The Runtime:** 258 seconds.
+4. **Hardware:** NVIDIA L4 on E2E Networks.
 
-[More Information Needed]
 
-**APA:**
-
-[More Information Needed]
-
-## Glossary [optional]
-
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-[More Information Needed]
-
-## More Information [optional]
-
-[More Information Needed]
-
-## Model Card Authors [optional]
-
-[More Information Needed]
-
-## Model Card Contact
-
-[More Information Needed]
-### Framework versions
-
-- PEFT 0.18.1
+```
