@@ -25,8 +25,9 @@ This model is trained to classify financial news headlines into three categories
 ---
 
 ---
-[![Training Report Preview](report_preview.png)](https://api.wandb.ai/links/kaggle_llama_project/kkgpodcr)
-*Click the image above to view the full interactive report on Weights & Biases.*
+## 📊 Training Reports
+The full training logs, including hardware utilization and loss convergence, are available here: 
+[Llama 3.2 3B Training Report](https://api.wandb.ai/links/kaggle_llama_project/kkgpodcr)
 ---
 ## 📂 Repository Structure
 - `master_train.py`: The main execution script for Phase 3.
