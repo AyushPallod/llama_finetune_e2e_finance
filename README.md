@@ -31,6 +31,7 @@ The full training logs, including hardware utilization and loss convergence, are
 ---
 ## 📂 Repository Structure
 - `master_train.py`: The main execution script for Phase 3.
+- `TRAIN_KAGGLE.md`: For initial training in kaggle using Financial Phrasebank
 - `SSH_SETUP.md`: Full guide on connecting to cloud GPUs from Windows.
 - `MASTER_TRAINING.md`: Deep dive into Linux setup, `venv`, and Nano editor usage.
 - `final_fin_llama_3b/`: The finalized model weights (Adapters).
