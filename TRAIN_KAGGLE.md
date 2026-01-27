@@ -46,8 +46,3 @@ In Phase 2, we moved to **Kaggle** to run our first Supervised Fine-Tuning (SFT)
 * **Initial Loss:** Started at ~2.4.
 * **Convergence:** The model successfully identified "Neutral" as the majority class, which is critical for financial news to avoid false buy/sell signals.
 * **The Bottleneck:** Kaggle's T4 was too slow for the 3-epoch "Master Run," leading to our migration to **E2E Networks** in Phase 3.
-
----
-
-
-This video is an excellent companion to this documentation as it provides a visual walkthrough of setting up the exact Unsloth/Llama-3.2 environment on Kaggle that we utilized for Phase 2.
